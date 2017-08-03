@@ -1,0 +1,23 @@
+{
+  "name": "project-2-there-again",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RettBehrens/project-2-there-again.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RettBehrens/project-2-there-again/issues"
+  },
+  "homepage": "https://github.com/RettBehrens/project-2-there-again#readme",
+  "dependencies": {
+    "yelp-fusion": "^1.0.3"
+  }
+}
