@@ -3,9 +3,12 @@
 const yelp = require('yelp-fusion');
 const mySecretInfo = require('./env.js');
 
+const mySearchTerm = 'comedy works';
+const mySearchLocation = 'denver';
+
 const searchRequest = {
-  term:'casa bonita',
-  location: 'co'
+  term: mySearchTerm,
+  location: mySearchLocation
 };
 
 function useYelpApi() {
