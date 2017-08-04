@@ -18,15 +18,23 @@
   },
   "homepage": "https://github.com/RettBehrens/project-2-there-again#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
     "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
     "mongoose": "^4.11.5",
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "yelp-fusion": "^1.0.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0",
+    "request": "^2.81.0"
   }
 }
