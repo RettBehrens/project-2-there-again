@@ -1,3 +1,17 @@
 <% include ./partials/header.ejs %>
 This is the search page.. find that fuckin business!
+
+<form method="post or get" action="/placeholder">
+  <div class="form-group">
+    <label for="businessName">Business Name</label>
+    <input class="form-control" type="text" name="businessName" id="businessName" placeholder="Chuck E Cheese.. bitches">
+  </div>
+
+  <div class="form-group">
+    <label for="city">City</label>
+    <input class="form-control" type="text" name="city" id="city" placeholder="Denver, CO.. bitches">
+  </div>
+
+  <input class="btn btn-default" type="submit">
+</form>
 <% include ./partials/footer.ejs %>
