@@ -23,6 +23,8 @@
         <div class="collapse navbar-collapse" id="user-menu">
           <ul class="nav navbar-nav">
             <% if (currentUser) {%>
+              <li><a href="/search">Search</a></li>
+              <li><a href="/profile">Profile</a></li>
               <li><a href="/logout">Logout <%= currentUser.local.email %></a></li>
             <% } else { %>
               <li><a href="/login">Login</a></li>

@@ -16,18 +16,24 @@ function authenticatedUser(req, res, next) {
 router.route('/')
   .get(staticsController.home);
 
+router.route('/profile')
+  .get(staticsController.profile);
+
+router.route('/search')
+  .get(staticsController.search);
+
 router.route('/signup')
   .get(usersController.getSignup)
-  .post(usersController.postSignup)
+  .post(usersController.postSignup);
 
 router.route('/login')
   .get(usersController.getLogin)
-  .post(usersController.postLogin)
+  .post(usersController.postLogin);
 
 router.route("/logout")
-  .get(usersController.getLogout)
+  .get(usersController.getLogout);
 
 // router.route("/secret")
 // 	.get(authenticatedUser, usersController.secret)
 
-module.exports = router
+module.exports = router;
