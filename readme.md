@@ -108,6 +108,10 @@ Friday, August 4th
 Yesterday I succesfully made an API call to and received a useable response from Yelp. I was worried the additional OAUTH and Token requirments would make this a miserable if not impossible experience for me. I dont want to jinx this but it seems like it was easy, at least from the terminal. Today I hope to incorporate the call and response into my app so the call and response occur when the user searches for a business by name using the search bar.
 I'll also need to get the signup, login/logout, and user profile features and functions working today. That also means data handling and storage... phew.
 
+Saturday, August 5th
+
+Working at home should be interesting... coding while the Cowboys vs Cardinals pre-season game is on in the living room. So far it's actually been fairly productive. I've modified the api calling code to return the top 5 matches rather than just one match from Yelp. I've also got my User profile info being collected and stored as part of the signup process! Still need to get api call executing on "search" using input parameters and api response rendering on the page. Also still need to make those results saveable to User list and displayed on User profile... ugh, this is gonna be ugly but it just might be done by project presentations on Tuesday.
+
 
 
 
