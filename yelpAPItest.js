@@ -3,8 +3,8 @@
 const yelp = require('yelp-fusion');
 const mySecretInfo = require('./env.js');
 
-const mySearchTerm = 'comedy works';
-const mySearchLocation = 'denver';
+const mySearchTerm = 'starbucks';
+const mySearchLocation = 'aurora, co';
 
 const searchRequest = {
   term: mySearchTerm,
@@ -19,8 +19,20 @@ yelp.accessToken(mySecretInfo.clientId, mySecretInfo.clientSecret).then(response
   client.search(searchRequest).then(response => {
 
     const firstResult = response.jsonBody.businesses[0];
-    const prettyJson = JSON.stringify(firstResult, null, 4);
-    console.log(prettyJson);
+    const firstResultJson = JSON.stringify(firstResult, null, 4);
+    console.log(firstResultJson);
+    const secondResult = response.jsonBody.businesses[1];
+    const secondResultJson = JSON.stringify(secondResult, null, 4);
+    console.log(secondResultJson);
+    const thirdResult = response.jsonBody.businesses[2];
+    const thirdResultJson = JSON.stringify(thirdResult, null, 4);
+    console.log(thirdResultJson);
+    const fourthResult = response.jsonBody.businesses[3];
+    const fourthResultJson = JSON.stringify(fourthResult, null, 4);
+    console.log(fourthResultJson);
+    const fifthResult = response.jsonBody.businesses[4];
+    const fifthResultJson = JSON.stringify(fifthResult, null, 4);
+    console.log(fifthResultJson);
   });
 }).catch(e => {
   console.log(e);
