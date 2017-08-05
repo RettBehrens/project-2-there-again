@@ -15,6 +15,10 @@ module.exports = function(passport) {
 	});
 
 	passport.use('local-signup', new LocalStrategy({
+		firstNameField: 'firstName',
+		lastNameField: 'lastName',
+		favoriteFoodField: 'favoriteFood',
+		favoriteDrinkField: 'favoriteDrink',
 		usernameField: 'email',
 		passwordField: 'password',
 		passReqToCallback: true
@@ -25,6 +29,10 @@ module.exports = function(passport) {
 				return callback(null, false, req.flash('signupMessage', 'This email is already used.'));
 			} else {
 				let newUser = new User();
+				newUser.local.firstName = req.body.firstName;
+				newUser.local.lastName = req.body.lastName;
+				newUser.local.favoriteFood = req.body.favoriteFood;
+				newUser.local.favoriteDrink = req.body.favoriteDrink;
 				newUser.local.email = email;
 				newUser.local.password = newUser.hash(password);
 				
