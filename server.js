@@ -38,6 +38,8 @@ app.use(function(req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
+var businessResultsList = [];
+
 app.get('/searchResults', function(req,res) {
 	var mySearchBusinessName = req.query.businessName;
 	var mySearchBusinessLocation = req.query.businessCity;
@@ -55,30 +57,21 @@ app.get('/searchResults', function(req,res) {
 	  		const client = yelp.client(response.jsonBody.access_token);
 	  		client.search(searchRequest).then(response => {
 		    	const firstResult = response.jsonBody.businesses[0];
-		    	const firstResultJson = JSON.stringify(firstResult, null, 4);
-		    	console.log(firstResultJson);
+		    	console.log(firstResult);
 		    	const secondResult = response.jsonBody.businesses[1];
-		    	const secondResultJson = JSON.stringify(secondResult, null, 4);
-		    	console.log(secondResultJson);
+		    	console.log(secondResult);
 		    	const thirdResult = response.jsonBody.businesses[2];
-		    	const thirdResultJson = JSON.stringify(thirdResult, null, 4);
-		    	console.log(thirdResultJson);
+		    	console.log(thirdResult);
 		    	const fourthResult = response.jsonBody.businesses[3];
-		    	const fourthResultJson = JSON.stringify(fourthResult, null, 4);
-		    	console.log(fourthResultJson);
+		    	console.log(fourthResult);
 		    	const fifthResult = response.jsonBody.businesses[4];
-		    	const fifthResultJson = JSON.stringify(fifthResult, null, 4);
-		    	console.log(fifthResultJson);
+		    	console.log(fifthResult);
 	  		});
 		}).catch(e => {
 	  		console.log(e);
 		});
 	};
 	runYelpAPICall();
-	function renderAPIResponse(business) {
-		console.log('rendering API response', business);
-		
-	}
 });
 
 app.listen(3000);
