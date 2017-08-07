@@ -3,12 +3,12 @@
 const yelp = require('yelp-fusion');
 const mySecretInfo = require('./env.js');
 
-const mySearchTerm = 'starbucks';
-const mySearchLocation = 'aurora, co';
+const mySearchBusinessName = 'starbucks';
+const mySearchBusinessLocation = 'aurora, co';
 
 const searchRequest = {
-  term: mySearchTerm,
-  location: mySearchLocation
+  term: mySearchBusinessName,
+  location: mySearchBusinessLocation
 };
 
 function useYelpApi() {

@@ -1,15 +1,15 @@
 <% include ./partials/header.ejs %>
-This is the search page.. find that fuckin business!
+This is the search page.. find that business!
 
-<form method="GET" action="/placeholder">
+<form id="searchForm" method="GET" action="/searchResults">
   <div class="form-group">
     <label for="businessName">Business Name</label>
-    <input class="form-control" type="text" name="businessName" id="businessName" placeholder="Chuck E Cheese.. bitches">
+    <input class="form-control" type="text" name="businessName" id="businessName" placeholder="General Assembly">
   </div>
 
   <div class="form-group">
-    <label for="city">City</label>
-    <input class="form-control" type="text" name="city" id="city" placeholder="Denver, CO.. bitches">
+    <label for="businessCity">City</label>
+    <input class="form-control" type="text" name="businessCity" id="businessCity" placeholder="Denver, CO">
   </div>
 
   <input class="btn btn-default" type="submit">

@@ -112,7 +112,9 @@ Saturday, August 5th
 
 Working at home should be interesting... coding while the Cowboys vs Cardinals pre-season game is on in the living room. So far it's actually been fairly productive. I've modified the api calling code to return the top 5 matches rather than just one match from Yelp. I've also got my User profile info being collected and stored as part of the signup process! Still need to get api call executing on "search" using input parameters and api response rendering on the page. Also still need to make those results saveable to User list and displayed on User profile... ugh, this is gonna be ugly but it just might be done by project presentations on Tuesday.
 
+Monday, August 7th
 
+So, Sunday was a wash... Literally accomplished nothing. This morning around 7:30ish, I finally got my API call to trigger when the search submit button is clicked, passing in the user input as variables in the api call function and successfully returning a response from Yelp. Now struggling to render the response to the page rather than console logging in the terminal. It'll be a miracle if I have a working app to present on Tuesday.
 
 
 
