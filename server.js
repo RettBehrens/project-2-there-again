@@ -67,7 +67,7 @@ app.post('/searchResults', function(req,res) {
 			    	businessResultsList.push(business);
 			    }
 		    	res.json(businessResultsList);
-		    	res.render(businessResultsList);
+		    	res.render('searchResults', {businessResultsList: businessResultsList});
 	  		});
 		});
 	};
