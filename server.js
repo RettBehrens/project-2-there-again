@@ -38,11 +38,10 @@ app.use(function(req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-var businessResultsList = [];
-
-app.get('/searchResults', function(req,res) {
-	var mySearchBusinessName = req.query.businessName;
-	var mySearchBusinessLocation = req.query.businessCity;
+app.post('/searchResults', function(req,res) {
+	var businessResultsList = [];
+	var mySearchBusinessName = req.body.businessName;
+	var mySearchBusinessLocation = req.body.businessCity;
 	console.log(mySearchBusinessName);
 	console.log(mySearchBusinessLocation);
 	var searchRequest = {
@@ -56,19 +55,20 @@ app.get('/searchResults', function(req,res) {
 		yelp.accessToken(mySecretInfo.clientId, mySecretInfo.clientSecret).then(response => {
 	  		const client = yelp.client(response.jsonBody.access_token);
 	  		client.search(searchRequest).then(response => {
-		    	const firstResult = response.jsonBody.businesses[0];
-		    	console.log(firstResult);
-		    	const secondResult = response.jsonBody.businesses[1];
-		    	console.log(secondResult);
-		    	const thirdResult = response.jsonBody.businesses[2];
-		    	console.log(thirdResult);
-		    	const fourthResult = response.jsonBody.businesses[3];
-		    	console.log(fourthResult);
-		    	const fifthResult = response.jsonBody.businesses[4];
-		    	console.log(fifthResult);
+		    	var jsonifiedBody = JSON.parse(response.body);
+		    	var businesses = jsonifiedBody.businesses;
+		    	for(i = 0; i < businesses.length; i++) {
+			    	var business = {
+			    		name: businesses[i].name,
+			    		image: businesses[i].image_url,
+			    		yelp: businesses[i].url,
+			    		address: businesses[i].location.display_address
+			    	};
+			    	businessResultsList.push(business);
+			    }
+		    	res.json(businessResultsList);
+		    	res.render(businessResultsList);
 	  		});
-		}).catch(e => {
-	  		console.log(e);
 		});
 	};
 	runYelpAPICall();
