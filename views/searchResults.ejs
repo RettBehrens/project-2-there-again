@@ -24,14 +24,15 @@ This is the search results page.. did we find the business you were searching fo
 										</li>
 										<li class='list-group-item'>
 											<h4 class='inline-header'>Yelp Link:</h4>
-											<span class='business-yelp-link'><a href= '<%= businessResultsList[i].yelp %>' > <%= 'HERE' %> </a></span>
+											<span class='business-yelp-link'><a href= '<%= businessResultsList[i].yelp %>' > <%= businessResultsList[i].name %> </a></span>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 						<div class='panel-footer'>
-							<button class='btn btn-primary add-business'>Add Business</button>
+							<button class='btn btn-success there-again'>There Again</button>
+							<button class='btn btn-danger not-there-again'>NOT There Again</button>
 						</div>
 					</div>
 				</div>
@@ -39,45 +40,5 @@ This is the search results page.. did we find the business you were searching fo
 		</div>	
 	<% } %>
 </div>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="addBusinessModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Tell Us About Your Experience.. Would You Go There Again?</h4>
-          </div>
-          <div class="modal-body">
-            <fieldset class='form-horizontal'>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="thereAgain">There Again?</label>
-              <div class="col-md-4">
-              <input id="thereAgain" name="thereAgain" type="text" placeholder="" class="form-control input-md" required="">
-
-              </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="why">Tell Us Why..?</label>
-              <div class="col-md-4">
-              <input id="why" name="why" type="text" placeholder="" class="form-control input-md">
-
-              </div>
-            </div>
-
-            </fieldset>
-
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="saveBusiness">Save Business</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 <% include ./partials/footer.ejs %>
