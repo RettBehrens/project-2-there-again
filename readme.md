@@ -14,12 +14,14 @@ There Again will be a full-stack application utilizing the Yelp API, Mongo, Mong
 ## landing page
 <img src="landing_page.png">
 
-## home page post-signup
-<img src="home_page_post-signup.png">
-
 ## signup page
+<img src="signup.png">
 
 ## login page
+<img src="login.png">
+
+## home page post-signup
+<img src="home_page_post-signup.png">
 
 ## search page
 <img src="search_page.png">
