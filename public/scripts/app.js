@@ -1,5 +1,19 @@
 $(document).ready(function() {
-	// $('#searchForm').on('submit', function(event) {
+	$('#businesses').on('click', '.add-business', function(event) {
+	//var id= $(this).parents('.album').data('album-id');
+	//$('#songModal').data('album-id', id);
+	console.log($('#addBusinessModal'));
+	$('#addBusinessModal').modal();
+	});
+});
+
+
+
+
+
+
+
+// $('#searchForm').on('submit', function(event) {
 	// 	event.preventDefault();
 	// 	$.ajax({
 	// 		method: 'GET',
@@ -13,4 +27,3 @@ $(document).ready(function() {
 	// 		}
 	// 	});
 	// });
-});
