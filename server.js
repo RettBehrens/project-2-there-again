@@ -38,40 +38,41 @@ app.use(function(req, res, next) {
 var routes = require('./config/routes');
 app.use(routes);
 
-app.post('/searchResults', function(req,res) {
+app.get('/searchResults', function(req,res) {
 	var businessResultsList = [];
-	var mySearchBusinessName = req.body.businessName;
-	var mySearchBusinessLocation = req.body.businessCity;
+	
+	var mySearchBusinessName = req.query.businessName;
+	var mySearchBusinessLocation = req.query.businessCity;
 	console.log(mySearchBusinessName);
 	console.log(mySearchBusinessLocation);
+	
 	var searchRequest = {
 		term: mySearchBusinessName,
   		location: mySearchBusinessLocation
 	};
 	console.log(searchRequest);
-	console.log('about to run the yelpAPIcall function');
-	function runYelpAPICall() {
-		console.log("running yelp api function");
-		yelp.accessToken(mySecretInfo.clientId, mySecretInfo.clientSecret).then(response => {
-	  		const client = yelp.client(response.jsonBody.access_token);
-	  		client.search(searchRequest).then(response => {
-		    	var jsonifiedBody = JSON.parse(response.body);
-		    	var businesses = jsonifiedBody.businesses;
-		    	for(i = 0; i < businesses.length; i++) {
-			    	var business = {
-			    		name: businesses[i].name,
-			    		image: businesses[i].image_url,
-			    		yelp: businesses[i].url,
-			    		address: businesses[i].location.display_address
-			    	};
-			    	businessResultsList.push(business);
-			    }
-		    	res.json(businessResultsList);
-		    	res.render('searchResults', {businessResultsList: businessResultsList});
-	  		});
-		});
-	};
-	runYelpAPICall();
+	
+	console.log('about to run the Yelp API call');
+	yelp.accessToken(mySecretInfo.clientId, mySecretInfo.clientSecret).then(response => {
+  		const client = yelp.client(response.jsonBody.access_token);
+  		client.search(searchRequest).then(response => {
+	    	var jsonifiedBody = JSON.parse(response.body);
+	    	var businesses = jsonifiedBody.businesses;
+	    	for(i = 0; i < businesses.length; i++) {
+		    	var business = {
+		    		name: businesses[i].name,
+		    		image: businesses[i].image_url,
+		    		yelp: businesses[i].url,
+		    		address: businesses[i].location.display_address
+		    	};
+		    	businessResultsList.push(business);
+		    }
+		    console.log('the Yelp API call ran');
+		    console.log(businessResultsList);
+	    	//res.json(businessResultsList);
+	    	res.render("searchResults", {businessResultsList: businessResultsList});
+  		});
+	});
 });
 
 app.listen(3000);

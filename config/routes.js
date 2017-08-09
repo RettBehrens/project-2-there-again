@@ -22,6 +22,9 @@ router.route('/profile')
 router.route('/search')
   .get(staticsController.search);
 
+// router.route('/searchResults')
+//   .get(staticsController.searchResults);
+
 router.route('/signup')
   .get(usersController.getSignup)
   .post(usersController.postSignup);
