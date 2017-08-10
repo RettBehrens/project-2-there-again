@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
+var Business = require('./business.js');
+
 var User = mongoose.Schema({
   local : {
     firstName: String,
@@ -9,6 +11,7 @@ var User = mongoose.Schema({
     favoriteDrink: String,
     email: String,
     password: String,
+    userList: [Business.schema]
   }
 });
 

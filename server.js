@@ -8,7 +8,7 @@ var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var session 		= require('express-session');
 var yelp			= require('yelp-fusion');
-var mySecretInfo	= require('./env.js')
+var mySecretInfo	= require('./env.js');
 
 mongoose.connect('mongodb://localhost/project-2-there-again');
 
@@ -37,6 +37,8 @@ app.use(function(req, res, next) {
 
 var routes = require('./config/routes');
 app.use(routes);
+
+var db = require('./models');
 
 app.get('/searchResults', function(req,res) {
 	var businessResultsList = [];

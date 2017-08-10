@@ -6,8 +6,8 @@ var BusinessSchema = new Schema({
 	businessImageURL: String,
 	businessYelpURL: String,
 	businessAddress: [String],
-	thereAgain: Boolean,
-	userDescription: String
+	thereAgain: Boolean
+	//userDescription: String
 });
 
 var Business = mongoose.model('Business', BusinessSchema);
