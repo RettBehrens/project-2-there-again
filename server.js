@@ -71,7 +71,6 @@ app.get('/searchResults', function(req,res) {
 		    }
 		    console.log('the Yelp API call ran');
 		    console.log(businessResultsList);
-	    	//res.json(businessResultsList);
 	    	res.render("searchResults", {businessResultsList: businessResultsList});
   		});
 	});

@@ -1,17 +1,36 @@
+function handleSuccess(json) {
+  console.log(json);
+}
+
+function handleError(json) {
+  console.log(json);
+}
+
 $(document).ready(function() {
-	console.log('this is the app.js');
+	console.log('this is app.js');
 	$('.there-again').on('click', function() {
-		console.log($(this).closest('.business').find('img').attr('src'));
-		console.log($(this).closest('.business').find('.business-name').html());
-		console.log($(this).closest('.business').find('.business-address').html());
-		console.log($(this).closest('.business').find('.business-yelp-link a').attr('href'));
-		// var businessToSave = {
-		// 	businessName: String,
-		// 	businessImageURL: String,
-		// 	businessYelpURL: String,
-		// 	businessAddress: [String],
-		// 	thereAgain: Boolean
-		// };
+		var businessName = $(this).closest('.business').find('.business-name').html();
+		var businessImageURL = $(this).closest('.business').find('img').attr('src');
+		var businessYelpURL = $(this).closest('.business').find('.business-yelp-link a').attr('href');
+		var businessAddress = $(this).closest('.business').find('.business-address').html();
+		var thereAgain = true;
+		
+		var businessToSave = {
+			businessName: businessName,
+			businessImageURL: businessImageURL,
+			businessYelpURL: businessYelpURL,
+			businessAddress: [businessAddress],
+			thereAgain: thereAgain
+		};
+		console.log(businessToSave);
+
+		$.ajax({
+			method: 'post',
+			url: '/profile',
+			data: businessToSave,
+			success: handleSuccess,
+			error: handleError
+		});
 
 
 		//6.AJAX POST this data
