@@ -1,9 +1,9 @@
 function handleSuccess(json) {
-  
+  console.log('success');
 }
 
 function handleError(json) {
-  console.log(json);
+  console.log('failure');
 }
 
 $(document).ready(function() {
@@ -29,9 +29,7 @@ $(document).ready(function() {
 		$.ajax({
 			method: 'post',
 			url: '/profile',
-			data: businessToSave,
-			success: handleSuccess,
-			error: handleError
+			data: businessToSave
 		});
 	});
 
@@ -55,9 +53,7 @@ $(document).ready(function() {
 		$.ajax({
 			method: 'post',
 			url: '/profile',
-			data: businessToSave,
-			success: handleSuccess,
-			error: handleError
+			data: businessToSave
 		});
 	});
 });
