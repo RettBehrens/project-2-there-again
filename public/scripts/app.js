@@ -31,6 +31,8 @@ $(document).ready(function() {
 			url: '/profile',
 			data: businessToSave
 		});
+		alert('business added!');
+		window.location.href = './search';
 	});
 
 	//"NOT There Again" button
@@ -55,5 +57,7 @@ $(document).ready(function() {
 			url: '/profile',
 			data: businessToSave
 		});
+		alert('business added!');
+		window.location.href = './search';
 	});
 });
