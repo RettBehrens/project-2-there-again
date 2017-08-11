@@ -8,8 +8,8 @@ var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var session 		= require('express-session');
 var yelp			= require('yelp-fusion');
-var clientId	= require('./env.js').clientId;
-var clientSecret	= require('./env.js').clientSecret;
+var clientId	= process.env.clientId || require('./env.js').clientId;
+var clientSecret	= process.env.clientSecret || require('./env.js').clientSecret;
 
 app.use(morgan('dev'));
 app.use(cookieParser());

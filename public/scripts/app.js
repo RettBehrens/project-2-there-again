@@ -1,5 +1,5 @@
 function handleSuccess(json) {
-  $.get('/profile');
+  
 }
 
 function handleError(json) {
