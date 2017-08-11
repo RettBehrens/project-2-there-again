@@ -17,7 +17,7 @@ router.route('/')
   .get(staticsController.home);
 
 router.route('/profile')
-  .get(staticsController.profile);
+  .get(authenticatedUser, staticsController.profile);
 
 router.route('/search')
   .get(staticsController.search);

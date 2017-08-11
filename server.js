@@ -8,9 +8,8 @@ var cookieParser 	= require('cookie-parser');
 var bodyParser 		= require('body-parser');
 var session 		= require('express-session');
 var yelp			= require('yelp-fusion');
-var mySecretInfo	= require('./env.js');
-
-mongoose.connect('mongodb://localhost/project-2-there-again');
+var clientId	= require('./env.js').clientId;
+var clientSecret	= require('./env.js').clientSecret;
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -50,12 +49,12 @@ app.get('/searchResults', function(req,res) {
 	
 	var searchRequest = {
 		term: mySearchBusinessName,
-  		location: mySearchBusinessLocation
+  	location: mySearchBusinessLocation
 	};
 	console.log(searchRequest);
 	
 	console.log('about to run the Yelp API call');
-	yelp.accessToken(mySecretInfo.clientId, mySecretInfo.clientSecret).then(response => {
+	yelp.accessToken(clientId, clientSecret).then(response => {
   		const client = yelp.client(response.jsonBody.access_token);
   		client.search(searchRequest).then(response => {
 	    	var jsonifiedBody = JSON.parse(response.body);
@@ -73,6 +72,34 @@ app.get('/searchResults', function(req,res) {
 		    console.log(businessResultsList);
 	    	res.render("searchResults", {businessResultsList: businessResultsList});
   		});
+	});
+});
+
+app.post('/profile', function authenticatedUser(req, res, next) {
+	if(req.isAuthenticated()) return next();
+	res.redirect('/');
+}, function business_add(req, res) {
+	console.log(req.user);
+	db.User.findOne({_id: req.user._id}, function(err, user) {
+		if (err) {
+			console.log(err);
+		} else if (user) {
+			// console.log(user);
+			db.Business.create(req.body, function(err, business) {
+    		user.local.userList.push(business);
+    		console.log(business);
+    		user.save(function(err, doesntmatter) {
+    			if (err) {
+    				console.log(err);
+    			} else {
+    				console.log(doesntmatter);
+    			}
+    		});
+    		//res.json(business);
+  		});
+		} else {
+			console.log('the ether');
+		}
 	});
 });
 

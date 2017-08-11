@@ -35,6 +35,7 @@ module.exports = function(passport) {
 				newUser.local.favoriteDrink = req.body.favoriteDrink;
 				newUser.local.email = email;
 				newUser.local.password = newUser.hash(password);
+				newUser.local.userList = [];
 				
 				newUser.save(function(err) {
 					if(err) throw err;

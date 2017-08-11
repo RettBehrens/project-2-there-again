@@ -4,6 +4,7 @@ function home(req, res) {
 }
 
 function profile(req, res) {
+	console.log('/profile static post');
 	res.render('profile');
 }
 

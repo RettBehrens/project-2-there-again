@@ -24,7 +24,7 @@ $(document).ready(function() {
 			businessAddress: [businessAddress],
 			thereAgain: thereAgain
 		};
-		console.log(businessToSave);
+		// console.log(businessToSave);
 
 		$.ajax({
 			method: 'post',
@@ -50,7 +50,7 @@ $(document).ready(function() {
 			businessAddress: [businessAddress],
 			thereAgain: thereAgain
 		};
-		console.log(businessToSave);
+		// console.log(businessToSave);
 
 		$.ajax({
 			method: 'post',
