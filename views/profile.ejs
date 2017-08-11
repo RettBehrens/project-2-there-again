@@ -1,10 +1,10 @@
 <% include ./partials/header.ejs %>
-This is the profile page.. look at all those businesses you've saved!
+This is the profile page.. 
 <br>
 
  <% if (currentUser) {%>
 
-	<%= currentUser.local.email %>
+	<%= 'Hey ' %><%= currentUser.local.firstName %><%= '! check out the businesses you have saved to your profile!' %>
 
 <% } %>
 
