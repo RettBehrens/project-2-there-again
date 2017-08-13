@@ -1,6 +1,8 @@
+// my requirements
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+// Business model Schema
 var BusinessSchema = new Schema({
 	businessName: String,
 	businessImageURL: String,
@@ -10,6 +12,5 @@ var BusinessSchema = new Schema({
 	//userDescription: String
 });
 
-var Business = mongoose.model('Business', BusinessSchema);
-
-module.exports = Business; 
+// export that Business model
+module.exports = mongoose.model('Business', BusinessSchema);
