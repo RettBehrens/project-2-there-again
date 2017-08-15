@@ -75,5 +75,14 @@ $(document).ready(function() {
 	//"Delete" button
 	$('.delete').on('click', function() {
 		console.log('delete button clicked');
+		var businessToDelete = $(this).closest('.business').attr('id');
+		console.log(businessToDelete);
+		$.ajax({
+			method: 'delete',
+			url: '/deleteRoute',
+			data: {id: businessToDelete}
+		});
+		alert('business deleted!');
+		location.reload();
 	});
 });

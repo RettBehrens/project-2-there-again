@@ -10,7 +10,7 @@ This is the profile page..
 
 <div class="container-fluid">
 	<% for(var i = 0; i < currentUser.local.userList.length; i++) { %>
-		<div class="row business">
+		<div id="<%= currentUser.local.userList[i]._id %>" class="row business">
 			<div class='col-md-10 col-md-offset-1'>
 				<div class='panel panel-default'>
 					<div class='panel-body'>

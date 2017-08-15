@@ -125,6 +125,22 @@ app.put('/editRoute', function business_edit(req, res) {
 // this is the delete functionality
 app.delete('/deleteRoute', function business_delete(req, res) {
 	console.log('delete route reached');
+	console.log(req.user);
+	console.log(req.body.id);
+	db.User.findOne({_id: req.user._id}, function(err,user) {
+		if(err) {
+			console.log(err);
+		} else if (user) {
+			console.log(user);
+			db.Business.findOneAndRemove({_id: req.body.id}, function(err, deleted) {
+				if(err) {
+					console.log(err);
+				} else {
+					res.json(deleted);
+				}
+			});
+		}
+	});
 });
 
 app.listen(process.env.PORT || 3000);
