@@ -125,20 +125,30 @@ app.put('/editRoute', function business_edit(req, res) {
 // this is the delete functionality
 app.delete('/deleteRoute', function business_delete(req, res) {
 	console.log('delete route reached');
-	console.log(req.user);
-	console.log(req.body.id);
-	db.User.findOne({_id: req.user._id}, function(err,user) {
-		if(err) {
+	businessToDeleteId = req.body.id;
+	console.log('var businessToDeleteId defined ' + businessToDeleteId);
+	userId = req.user._id;
+	console.log('var userId defined ' + userId);
+	db.User.findOne({_id: userId}, function(err, user) {
+		if(err){
 			console.log(err);
-		} else if (user) {
-			console.log(user);
-			db.Business.findOneAndRemove({_id: req.body.id}, function(err, deleted) {
-				if(err) {
-					console.log(err);
-				} else {
-					res.json(deleted);
+		} else {
+			console.log('success');
+			for(let i = 0; i < user.local.userList.length; i++){
+				if (user.local.userList[i]._id == businessToDeleteId) {
+					//i
+					console.log('so far so good');
+					user.local.userList.splice(i, 1);
+					break;
 				}
-			});
+			}
+			user.save(function(err, success) {
+  			if (err) {
+  				console.log(err);
+  			} else {
+  				console.log(success);
+  			}
+    	});
 		}
 	});
 });
