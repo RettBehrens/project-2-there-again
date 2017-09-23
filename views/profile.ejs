@@ -1,12 +1,12 @@
 <% include ./partials/header.ejs %>
-This is the profile page.. 
-<br>
-
+<h2>
  <% if (currentUser) {%>
 
-	<%= 'Hey ' %><%= currentUser.local.firstName %><%= '! check out the businesses you have saved to your profile!' %>
+	<%= 'Hey ' %><%= currentUser.local.firstName %><%= '! Check out the businesses you have saved to your profile!' %>
 
 <% } %>
+</h2>
+<hr>
 
 <div class="container-fluid">
 	<% for(var i = 0; i < currentUser.local.userList.length; i++) { %>
@@ -15,7 +15,7 @@ This is the profile page..
 				<div class='panel panel-default'>
 					<div class='panel-body'>
 						<div class="row">
-							<div class="col-xs-12 col-md-3 col-lg-3 thumbnail">
+							<div class="col-xs-12 col-md-3 col-lg-3">
 								<img class="img-responsive" src="<%= currentUser.local.userList[i].businessImageURL %>">
 							</div>
 							<div class='col-md-9 col-xs-12'>
@@ -41,7 +41,6 @@ This is the profile page..
 						</div>
 					</div>
 					<div class='panel-footer'>
-						<button class='btn btn-warning edit'>Edit</button>
 						<button class='btn btn-danger delete'>Delete</button>
 					</div>
 				</div>
