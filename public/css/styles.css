@@ -1,0 +1,16 @@
+* {
+	font-family: Helvetica Neue;
+}
+
+body {
+	background-color: #ffee98;
+	background-image: linear-gradient(152deg, #ffee98 0%, #d32323 74%);
+}
+
+nav {
+	background-color: #D32323;
+}
+
+.container-fluid {
+	min-height: 100vh;
+}
